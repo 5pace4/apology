@@ -1,0 +1,138 @@
+/* Container to center the mailbox card */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  font-family: 'Arial', sans-serif;
+  overflow: hidden;
+}
+
+/* Watermark background with 6 custom emojis */
+.watermark-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Behind other content */
+  background-image: url('/src/assets/images/1.png'),
+    url('/src/assets/images/2.png'), url('/src/assets/images/3.jpg'),
+    url('/src/assets/images/4.jpg'), url('/src/assets/images/5.jpg'),
+    url('/src/assets/images/6.jpg');
+  background-repeat: no-repeat;
+  background-position: 5% 10%, /* emoji1 position */ 85% 15%,
+    /* emoji2 position */ 50% 80%, /* emoji3 position */ 15% 65%,
+    /* emoji4 position */ 70% 90%, /* emoji5 position */ 30% 30%; /* emoji6 position */
+  background-size: 120px, /* emoji1 size */ 180px, /* emoji2 size */ 140px,
+    /* emoji3 size */ 200px, /* emoji4 size */ 150px, /* emoji5 size */ 170px; /* emoji6 size */
+  opacity: 0.15; /* Transparent watermark effect */
+}
+
+/* Mailbox styling */
+.mailbox-card {
+  width: 220px;
+  height: 160px;
+  background-color: #ff6f61;
+  border-radius: 15px;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.mailbox-card:hover {
+  transform: scale(1.05);
+}
+
+.mailbox-card .flag {
+  position: absolute;
+  top: -15px;
+  right: 10px;
+  width: 25px;
+  height: 50px;
+  background-color: #ffcf33;
+  transform: rotate(45deg);
+  animation: flag-wave 1s infinite;
+}
+
+@keyframes flag-wave {
+  0% {
+    transform: rotate(45deg);
+  }
+  50% {
+    transform: rotate(50deg);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
+}
+
+.mailbox-card .mailbox-lid {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 30%;
+  background-color: #ff9980;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.mailbox-card .mailbox-body {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70%;
+  background-color: #ff6f61;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+/* Hover text */
+.text-hover {
+  position: absolute;
+  bottom: -40px;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.mailbox-card:hover .text-hover {
+  opacity: 1;
+}
+
+/* Message card styling */
+.message-card {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 400px;
+  transition: opacity 1s ease-in-out;
+  opacity: 0;
+  animation: fadeIn 1.5s forwards;
+  position: relative;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Love message styling */
+.love-text {
+  font-size: 20px;
+  color: #ff6b81;
+  font-weight: bold;
+  line-height: 1.5;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
